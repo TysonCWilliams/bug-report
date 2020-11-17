@@ -12,14 +12,18 @@ class BugService {
   }
 
   async edit(id, body) {
-    // eslint-disable-next-line eqeqeq
-    if (body.closed == true && body.closedDate == undefined) {
-      body.closedDate = new Date()
+    if (body.closedDate === undefined) {
+      // eslint-disable-next-line eqeqeq
+      if (body.closed == true && body.closedDate == undefined) {
+        body.closedDate = new Date()
+      }
+      await dbContext.Bugs.findByIdAndUpdate(id, body, { new: true })
+      if (!Bug) {
+        throw new BadRequest('No found Bug')
+      } return this.getBugs()
+    } else {
+      throw new BadRequest('Cannot edit a closed bug!')
     }
-    await dbContext.Bugs.findByIdAndUpdate(id, body, { new: true })
-    if (!Bug) {
-      throw new BadRequest('No found Bug')
-    } return this.getBugs()
   }
 
   async getById(id) {
