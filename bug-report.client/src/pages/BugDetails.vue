@@ -1,47 +1,63 @@
 <template>
   <div class="bugDetails container-fluid justify-content-center">
     <h1>Bug Details</h1>
-    <div class="row">
+    <div class="row justify-content-center">
+      <div class="col-6 align-items-center">
+        <div class="card my-card">
+          <div class="card-body">
+            <form class="form-group" @submit.prevent="createNote">
+              <input type="text" class="form-control" v-model="state.newNote.content">
+              <button class="btn btn-info mt-3" type="submit">
+                Create Note
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
       <div class="col-12">
-        <div class="card">
-          <button :disabled="bugDetails.closed" @click="markCompleted()">
-            Mark Completed
-          </button>
-          <button :disabled="bugDetails.closed" @click="toggleIsEditing()">
-            Edit
-          </button>
+        <div class="card mb-4">
+          <div class="card-body">
+            <button class="btn btn-warning btn-lg" :disabled="bugDetails.closed" @click="markCompleted()">
+              Mark Completed
+            </button>
+            <button class="btn btn-primary btn-lg ml-3" :disabled="bugDetails.closed" @click="toggleIsEditing()">
+              Edit Bug
+            </button>
+          </div>
           <div v-if="bugDetails" class="card-body">
             <h1 v-if="!state.isEditing" class="card-title">
               Title:
               {{ bugDetails.title }}
             </h1>
-            <input v-if="state.isEditing" type="text" v-model="bugDetails.title" />
-            <p v-if="!state.isEditing" class="card-text">
-              Description
+            <div class="row justify-content-center">
+              <input class="my-input mb-2" v-if="state.isEditing" type="text" placeholder="Title" v-model="bugDetails.title" />
+            </div>
+            <h5 v-if="!state.isEditing" class="card-text desc">
+              Description:
               {{ bugDetails.description }}
-            </p>
-            <input v-if="state.isEditing" type="text" v-model="bugDetails.description" />
-            <p v-if="!state.isEditing" class="card-text">
+            </h5>
+            <div class="row justify-content-center">
+              <input class="my-input mb-2" v-if="state.isEditing" type="text" placeholder="Description" v-model="bugDetails.description" />
+            </div>
+            <p v-if="!state.isEditing" class="card-text update">
               Last updated at:
               {{ formatDate(bugDetails.updatedAt) }}
             </p>
-            <p>{{ bugDetails.reportedBy }}</p>
+            <p class="my-name">
+              Reported by: {{ bugDetails.reportedBy }}
+            </p>
           </div>
-          <button v-if="state.isEditing" @click="updateBug">
-            Save
-          </button>
+          <div class="row justify-content-center">
+            <button class="btn btn-outline-light btn-lg" v-if="state.isEditing" @click="updateBug">
+              Save
+            </button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <form class="col-3 form-group" @submit.prevent="createNote">
-        <input type="text" class="form-control" v-model="state.newNote.content">
-        <button class="btn btn-info" type="submit">
-          Create Note
-        </button>
-      </form>
-      <note-component />
-    </div>
+    <note-component />
   </div>
 </template>
 
@@ -128,6 +144,30 @@ button{
   .card{
     border-style: solid;
     border-color:beige;
+    border-width: thick;
+  }
+
+  .my-card{
+    border-style: solid;
+    border-color:rgb(1, 253, 148);
+    border-width: thick;
+  }
+
+  .desc{
+    color:rgb(9, 247, 167)
+  }
+
+  .update{
+    color: rgb(212, 0, 255);
+  }
+
+  .my-name{
+color: rgb(7, 11, 243);
+  }
+
+  .my-input{
+    border-style: solid;
+    border-color:rgba(241, 12, 12, 0.719);
     border-width: thick;
   }
 
