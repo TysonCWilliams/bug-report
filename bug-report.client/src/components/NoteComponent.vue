@@ -4,13 +4,13 @@
       <thead>
         <tr>
           <th class="custom-header" scope="col">
-            ReportedBy
+            ReportedBy:
           </th>
           <th class="custom-header" scope="col">
-            Content
+            Content:
           </th>
           <th class="custom-header" scope="col">
-            Last Modified
+            Posted at:
           </th>
           <th>
             Closed
