@@ -1,6 +1,6 @@
 <template>
   <div class="bugComponent">
-    <table class="myTable table table-striped table-dark">
+    <table class="my-table table table-striped table-dark">
       <thead>
         <tr>
           <th class="custom-header" scope="col">

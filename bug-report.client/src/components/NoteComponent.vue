@@ -35,7 +35,7 @@
           <td class="my-color">
             {{ formatDate(note.updatedAt) + ' / ' }}
 
-            <small style="margin-left: 5px;">{{ getTime(note.updatedAt) + '  /  ' }}</small>
+            <small style="margin-left: 5px;">{{ getTime(note.updatedAt) + '    ' }}</small>
             <!-- <button class="btn btn-outline-dark btn-lg " style="margin-left: 8px;" @click="navigateTo('/bugDetails/' + bug._id)">
               Details
             </button> -->

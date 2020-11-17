@@ -15,9 +15,9 @@
         </div>
       </div>
     </div>
-    <div class="row mt-4">
+    <div class="row mt-5">
       <div class="col-12">
-        <div class="card mb-4">
+        <div class="card mb-5">
           <div class="card-body">
             <button class="btn btn-warning btn-lg" :disabled="bugDetails.closed" @click="markCompleted()">
               Mark Completed
@@ -162,7 +162,11 @@ button{
   }
 
   .my-name{
-color: rgb(7, 11, 243);
+   color: rgb(243, 7, 7);
+  font-size: large;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+  text-shadow: rgba(7, 7, 7, 0.719);
   }
 
   .my-input{

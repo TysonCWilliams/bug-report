@@ -7,18 +7,21 @@
       <bug-component />
     </div>
     <div class="row justify-content-center">
-      <div class="col-6">
+      <div class="col-6 mt-5">
         <!-- <form class="form group mt-4" @submit.prevent="createBug"> -->
         <div class="card">
+          <h3 class="report-title">
+            Report a Bug
+          </h3>
           <div class="card-body">
             <div class="row justify-content-center">
               <div class="form-group mx-sm-3 mb-2">
-                <input style="margin-bottom: 1em;" type="text" class="form-control" v-model="state.newBug.title" placeholder="Title">
+                <input style="margin-bottom: 1em;" type="text" class="form-control my-border" v-model="state.newBug.title" placeholder="Title">
               </div>
             </div>
             <div class="row justify-content-center">
               <div class="form-group mx-sm-3 mb-4">
-                <textarea style="height: 100px;" type="text" class="form-control" v-model="state.newBug.description" placeholder="Description"></textarea>
+                <textarea style="height: 100px;" type="text" class="form-control my-border" v-model="state.newBug.description" placeholder="Description"></textarea>
               </div>
             </div>
             <div class="row justify-content-center">
@@ -102,6 +105,16 @@ button{
   border-style: solid;
   border-width: thick;
   background-color: rgba(0, 0, 0, 0.651);
+}
+
+.report-title{
+color: rgba(162, 1, 255, 0.993);
+}
+
+.my-border{
+  border-color: rgb(45, 255, 3);
+  border-style: solid;
+  border-width: thick;
 }
 
 </style>

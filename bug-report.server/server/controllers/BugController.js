@@ -51,7 +51,6 @@ export class BugController extends BaseController {
   }
 
   async getById(req, res, next) {
-    console.log(req.params)
     try {
       res.send(await bugService.getById(req.params.id))
     } catch (err) {
